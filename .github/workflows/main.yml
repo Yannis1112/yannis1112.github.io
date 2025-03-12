@@ -1,2 +1,14 @@
-- name: flutter-build-web
-  uses: cedvdb/action-flutter-build-web@v1
+name: Build and distribute
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: flutter-build-web
+        uses: cedvdb/action-flutter-build-web@v1
