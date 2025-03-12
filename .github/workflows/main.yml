@@ -10,5 +10,15 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - name: flutter-build-web
-        uses: cedvdb/action-flutter-build-web@v1
+      - uses: actions/checkout@v2
+
+      - uses: cedvdb/action-flutter-build-web@v1
+        with:
+          build-cmd: flutter build web --release
+          working-directory: ./
+
+      - name: Archive Production artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: build/web
