@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../home_page.dart';
 import '../projects_page.dart';
 import '../skills_page.dart';
-import 'dart:html' as html;
-
+import 'package:url_launcher/url_launcher.dart';
+// TODO: peut-être ajouter une page contact
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
@@ -59,13 +58,11 @@ class Menu extends StatelessWidget {
             ),
             title: Text("CV", style: TextStyle(color: Colors.white)),
             onTap: () async {
-              ByteData data = await rootBundle.load("assets/CV_Yannis_Philippot.pdf");
-              Uint8List bytes = data.buffer.asUint8List();
-
-              final blob = html.Blob([bytes], 'application/pdf');
-              final url = html.Url.createObjectUrlFromBlob(blob);
-
-              html.window.open(url, '_blank');
+              final url = "assets/CV_Yannis_Philippot.pdf";
+              final uri = Uri.parse(url);
+              if(!await launchUrl(uri)) {
+                throw 'Impossible de lancer $uri';
+              }
             },
           ),
         ],

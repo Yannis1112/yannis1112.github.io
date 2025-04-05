@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/widgets/menu.dart';
+import 'package:portfolio/screens/widgets/semented_button.dart';
 
 class SkillsPage extends StatefulWidget {
   const SkillsPage({super.key});
@@ -8,14 +9,57 @@ class SkillsPage extends StatefulWidget {
   State<SkillsPage> createState() => _SkillsPageState();
 }
 
-class _SkillsPageState extends State<SkillsPage> with SingleTickerProviderStateMixin {
+class _SkillsPageState extends State<SkillsPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  int _selectedCategory = 0;
+
+  final Map<int, List<Map<String, dynamic>>> _skillsData = {
+    0: [
+      {'name': 'HTML', 'progress': 0.7},
+      {'name': 'CSS', 'progress': 0.4},
+      {'name': 'Java', 'progress': 0.8},
+      {'name': 'Kotlin', 'progress': 0.8},
+      {'name': 'JavaScript', 'progress': 0.65},
+      {'name': 'TypeScript', 'progress': 0.65},
+      {'name': 'C++', 'progress': 0.6},
+      {'name': 'PHP', 'progress': 0.5},
+      {'name': 'Dart', 'progress': 0.9},
+      {'name': 'Git', 'progress': 0.75},
+    ],
+    1: [
+      {'name': 'Node.js', 'progress': 0.75},
+      {'name': 'Cake PHP', 'progress': 0.3},
+      {'name': 'Flutter', 'progress': 0.85},
+    ],
+    2: [
+      {'name': 'Visual Studio Code', 'progress': 0.75},
+      {'name': 'Android Studio', 'progress': 0.9},
+      {'name': 'QT Creator', 'progress': 0.65},
+      {'name': 'Intellij', 'progress': 0.8},
+    ],
+    3: [
+      {'name': 'MySQL', 'progress': 0.8},
+      {'name': 'MongoDB', 'progress': 0.45},
+      {'name': 'Neo4j', 'progress': 0.6},
+      {'name': 'PostgreSQL', 'progress': 0.7},
+      {'name': 'Firebase', 'progress': 0.8},
+      {'name': 'Room', 'progress': 0.5},
+    ],
+    4: [
+      {'name': 'Trello', 'progress': 0.95},
+      {'name': 'Jira', 'progress': 0.6},
+    ],
+  };
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
     _animation = Tween<double>(begin: -250, end: 0).animate(_controller);
   }
 
@@ -46,7 +90,7 @@ class _SkillsPageState extends State<SkillsPage> with SingleTickerProviderStateM
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/skill_page.jpg"),
             fit: BoxFit.cover,
@@ -54,6 +98,24 @@ class _SkillsPageState extends State<SkillsPage> with SingleTickerProviderStateM
         ),
         child: Stack(
           children: [
+            Column(
+              children: [
+                const Text(
+                  "Compétences",
+                  style: TextStyle(fontSize: 50, color: Colors.white),
+                ),
+                const SizedBox(height: 20),
+                SegmentedButtonWidget(
+                  onCategoryChanged: (index) {
+                    setState(() {
+                      _selectedCategory = index;
+                    });
+                  },
+                ),
+                const SizedBox(height: 20),
+                _buildSkillsCard(),
+              ],
+            ),
             AnimatedBuilder(
               animation: _animation,
               builder: (context, child) {
@@ -61,14 +123,67 @@ class _SkillsPageState extends State<SkillsPage> with SingleTickerProviderStateM
                   left: _animation.value,
                   top: 0,
                   bottom: 0,
-                  child: child!,
+                  child: Container(
+                    width: 250,
+                    color: Colors.black, // Fond du menu // TODO: Change the color
+                    child: child!,
+                  ),
                 );
               },
-              child: Menu(),
+              child: const Menu(),
             ),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildSkillsCard() {
+    return Card(
+      color: Colors.black.withOpacity(0.6),
+      margin: const EdgeInsets.all(20),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Wrap(
+          spacing: 20,
+          runSpacing: 20,
+          alignment: WrapAlignment.center,
+          children: _skillsData[_selectedCategory]!.map((skill) {
+            return Column(
+              children: [
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      CircularProgressIndicator(
+                        value: skill['progress'],
+                        strokeWidth: 8,
+                        backgroundColor: Colors.grey[800],
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+                      ),
+                      Center(
+                        child: Text(
+                          '${(skill['progress'] * 100).toInt()}%',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  skill['name'],
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ],
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
 }

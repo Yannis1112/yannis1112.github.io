@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/widgets/circuit_widget.dart';
 import 'package:portfolio/screens/widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage>
         ),
         child: Stack(
           children: [
+            CircuitPage(),
             AnimatedBuilder(
               animation: _animation,
               builder: (context, child) {

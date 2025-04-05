@@ -54,6 +54,7 @@ class _ProjectsPageState extends State<ProjectsPage> with SingleTickerProviderSt
         ),
         child: Stack(
           children: [
+
             AnimatedBuilder(
               animation: _animation,
               builder: (context, child) {
