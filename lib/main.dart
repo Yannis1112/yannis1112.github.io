@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Portfolio',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade800), // TODO: Change the color scheme
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade900), // TODO: Change the color scheme
       ),
       home: const HomePage(),
     );

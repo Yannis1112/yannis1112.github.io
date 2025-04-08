@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/widgets/menu.dart';
 import 'package:portfolio/screens/widgets/semented_button.dart';
@@ -81,6 +83,7 @@ class _SkillsPageState extends State<SkillsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         leading: IconButton(
           icon: AnimatedIcon(
             icon: AnimatedIcons.menu_close,
@@ -100,20 +103,38 @@ class _SkillsPageState extends State<SkillsPage>
           children: [
             Column(
               children: [
-                const Text(
-                  "Compétences",
-                  style: TextStyle(fontSize: 50, color: Colors.white),
+                const SizedBox(height: 32),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                      child: const Text(
+                        "Compétences",
+                        style: TextStyle(fontSize: 50, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 20),
-                SegmentedButtonWidget(
-                  onCategoryChanged: (index) {
-                    setState(() {
-                      _selectedCategory = index;
-                    });
-                  },
+                const SizedBox(height: 32),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SegmentedButtonWidget(
+                          onCategoryChanged: (index) {
+                            setState(() {
+                              _selectedCategory = index;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        _buildSkillsCard(),
+                      ],
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 20),
-                _buildSkillsCard(),
               ],
             ),
             AnimatedBuilder(
@@ -125,7 +146,7 @@ class _SkillsPageState extends State<SkillsPage>
                   bottom: 0,
                   child: Container(
                     width: 250,
-                    color: Colors.black, // Fond du menu // TODO: Change the color
+                    color: Colors.black, // TODO: Change the color
                     child: child!,
                   ),
                 );
@@ -161,7 +182,7 @@ class _SkillsPageState extends State<SkillsPage>
                         value: skill['progress'],
                         strokeWidth: 8,
                         backgroundColor: Colors.grey[800],
-                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+                        valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondaryContainer),
                       ),
                       Center(
                         child: Text(
@@ -185,5 +206,4 @@ class _SkillsPageState extends State<SkillsPage>
       ),
     );
   }
-
 }

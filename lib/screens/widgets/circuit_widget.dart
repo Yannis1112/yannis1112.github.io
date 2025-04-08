@@ -12,12 +12,13 @@ class CircuitPage extends StatelessWidget {
 }
 
 class CircuitWidget extends StatefulWidget {
+  const CircuitWidget({super.key});
+
   @override
   _CircuitWidgetState createState() => _CircuitWidgetState();
 }
 
 class _CircuitWidgetState extends State<CircuitWidget> {
-  // Points du circuit (plus détaillés)
   final List<Offset> points = [
     Offset(130, 272),
     Offset(160, 240),
@@ -43,14 +44,26 @@ class _CircuitWidgetState extends State<CircuitWidget> {
   ];
 
   final List<String> stopDescriptions = [
-    "Départ : point de départ du circuit.", // Moi
-    "Arrêt 1 : zone technique.", // Parcours scolaire
-    "Arrêt 2 : point de contrôle.", // Centres d'intérêts
-    "Arrêt 3 : ravitaillement.",
-    "Arrivée : fin du circuit.", // objectifs
+    "Bonjour ! Je m'appelle Yannis Philippot. \n"
+        "Je suis actuellement étudiant en BUT Informatique à l'IUT Lyon 1, sur le site de Bourg-en-Bresse.", // Moi
+    "Mon parcours scolaire : \n\n"
+        "• 2015 - 2019 : Collège Saint-Charles, à Feillens \n ➔ Brevet Mention Très Bien \n"
+    "• 2019 - 2022 : Lycée Ozanam, à Mâcon \n ➔ BAC général, spécialités Mathématiques et NSI, avec Mention Assez Bien \n"
+        "• 2022 - 2025 : IUT Lyon 1, à Bourg-en-Bresse \n ➔ BUT Informatique, spécialité Développement Mobile", // Parcours scolaire
+    "En dehors de l’informatique, je consacre mon temps libre à plusieurs activités qui me permettent de m’évader et de me détendre. \n\n"
+        "🥾 J’aime partir en randonnée, profiter de la nature et découvrir de nouveaux paysages.\n"
+        "🍔 Je m’intéresse également à la cuisine, plus particulièrement à la Street Food.\n"
+        "🏎 Passionné par le sport automobile, je suis de près les compétitions et les innovations dans ce domaine. \n"
+    "🎮 Enfin, je suis amateur de jeux vidéo, c’est un bon moyen pour moi de me divertir tout en stimulant ma réflexion.\n", // Centres d'intérêts
+    "Je souhaite m’orienter vers le domaine du développement mobile. Mon objectif est de concevoir des applications intuitives, performantes et utiles, en alliant à la fois design, expérience utilisateur et fonctionnalités techniques solides.\n"
+        "Dans les mois à venir, je veux continuer à progresser sur les technologies mobiles, notamment avec Flutter, tout en découvrant les bonnes pratiques de développement à travers des expériences en entreprise. \n"
+        "À long terme, je me vois évoluer en tant que développeur mobile au sein d’une équipe dynamique, sur des projets innovants.", // objectifs
+    "Mes contacts : \n\n"
+        "Mail : yannis.philippot@gmail.com\n"
+        "Linkedin : www.linkedin.com/in/yannis-philippot\n"
+        "Github : https://github.com/Yannis1112\n", // Mes contacts
   ];
 
-  // Points où le personnage doit s'arrêter
   final List<int> stopPoints = [0, 3, 8, 14, 20];
   int currentStopIndex = 0;
   int currentPointIndex = 0;
@@ -86,7 +99,6 @@ class _CircuitWidgetState extends State<CircuitWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Partie gauche : Circuit + bouton
         Expanded(
         flex: 1,
         child: LayoutBuilder(
@@ -102,15 +114,14 @@ class _CircuitWidgetState extends State<CircuitWidget> {
                 left: points[currentPointIndex].dx - 10,
                 top: points[currentPointIndex].dy - 10,
                 child: SizedBox(
-                  width: 20, // Largeur ajustée
+                  width: 20,
                   height: 20,
                   child: Image.asset("assets/icons/casque.png", color: Colors.white),
                 ),
               ),
-
               Positioned(
-                bottom: 20,
-                right: 20,
+                bottom: 100,
+                right: 250,
                 child: ElevatedButton(
                   onPressed: moveToNextStop,
                   child: Text('Suivant'),
@@ -124,12 +135,12 @@ class _CircuitWidgetState extends State<CircuitWidget> {
 
         // Partie droite : Texte explicatif
         Expanded(
-          flex: 1, // Moitié de l'écran
+          flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.95),
+                color: Colors.white.withOpacity(0.75),
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
@@ -152,17 +163,15 @@ class _CircuitWidgetState extends State<CircuitWidget> {
                       child: SlideTransition(
                         position: Tween<Offset>(
                           begin: Offset(0.1, 0),
-                          // Légère translation depuis la droite
                           end: Offset.zero,
                         ).animate(animation),
                         child: child,
                       ),
                     );
                   },
-                  child: Text(
+                  child: SelectableText(
                     stopDescriptions[currentStopIndex],
                     key: ValueKey<int>(currentStopIndex),
-                    // Clé différente pour chaque texte
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.black87,
