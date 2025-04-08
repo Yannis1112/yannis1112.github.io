@@ -16,7 +16,11 @@ class Menu extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: Icon(Icons.home, color: Colors.white),
+            leading: Image.asset(
+              "assets/icons/coureur.png",
+              width: 24,
+              height: 24,
+            ),
             title: Text("Accueil", style: TextStyle(color: Colors.white)),
             onTap: () {
               Navigator.push(
@@ -26,9 +30,10 @@ class Menu extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: ImageIcon(
-              AssetImage("assets/icons/competence.png"),
-              color: Colors.white,
+            leading: Image.asset(
+              "assets/icons/pistolet_roue.png",
+              width: 24,
+              height: 24,
             ),
             title: Text("Compétences", style: TextStyle(color: Colors.white)),
             onTap: () {
@@ -39,9 +44,10 @@ class Menu extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: ImageIcon(
-              AssetImage("assets/icons/departement-informatique.png"),
-              color: Colors.white,
+            leading: Image.asset(
+              "assets/icons/volant.png",
+              width: 24,
+              height: 24,
             ),
             title: Text("Projets", style: TextStyle(color: Colors.white)),
             onTap: () {
@@ -52,9 +58,10 @@ class Menu extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: ImageIcon(
-              AssetImage("assets/icons/cv.png"),
-              color: Colors.white,
+            leading: Image.asset(
+              "assets/icons/champion.png",
+              width: 24,
+              height: 24,
             ),
             title: Text("CV", style: TextStyle(color: Colors.white)),
             onTap: () async {

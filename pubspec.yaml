@@ -72,6 +72,10 @@ flutter:
     - assets/living_home.jpg
     - assets/living_auth.jpg
     - assets/living_dex.jpg
+    - assets/icons/coureur.png
+    - assets/icons/volant.png
+    - assets/icons/pistolet_roue.png
+    - assets/icons/champion.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

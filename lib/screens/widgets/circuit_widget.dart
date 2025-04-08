@@ -45,23 +45,23 @@ class _CircuitWidgetState extends State<CircuitWidget> {
 
   final List<String> stopDescriptions = [
     "Bonjour ! Je m'appelle Yannis Philippot. \n"
-        "Je suis actuellement étudiant en BUT Informatique à l'IUT Lyon 1, sur le site de Bourg-en-Bresse.", // Moi
+        "Je suis actuellement étudiant en BUT Informatique à l'IUT Lyon 1, sur le site de Bourg-en-Bresse.",
     "Mon parcours scolaire : \n\n"
         "• 2015 - 2019 : Collège Saint-Charles, à Feillens \n ➔ Brevet Mention Très Bien \n"
     "• 2019 - 2022 : Lycée Ozanam, à Mâcon \n ➔ BAC général, spécialités Mathématiques et NSI, avec Mention Assez Bien \n"
-        "• 2022 - 2025 : IUT Lyon 1, à Bourg-en-Bresse \n ➔ BUT Informatique, spécialité Développement Mobile", // Parcours scolaire
+        "• 2022 - 2025 : IUT Lyon 1, à Bourg-en-Bresse \n ➔ BUT Informatique, spécialité Développement Mobile",
     "En dehors de l’informatique, je consacre mon temps libre à plusieurs activités qui me permettent de m’évader et de me détendre. \n\n"
         "🥾 J’aime partir en randonnée, profiter de la nature et découvrir de nouveaux paysages.\n"
         "🍔 Je m’intéresse également à la cuisine, plus particulièrement à la Street Food.\n"
         "🏎 Passionné par le sport automobile, je suis de près les compétitions et les innovations dans ce domaine. \n"
-    "🎮 Enfin, je suis amateur de jeux vidéo, c’est un bon moyen pour moi de me divertir tout en stimulant ma réflexion.\n", // Centres d'intérêts
+    "🎮 Enfin, je suis amateur de jeux vidéo, c’est un bon moyen pour moi de me divertir tout en stimulant ma réflexion.\n",
     "Je souhaite m’orienter vers le domaine du développement mobile. Mon objectif est de concevoir des applications intuitives, performantes et utiles, en alliant à la fois design, expérience utilisateur et fonctionnalités techniques solides.\n"
         "Dans les mois à venir, je veux continuer à progresser sur les technologies mobiles, notamment avec Flutter, tout en découvrant les bonnes pratiques de développement à travers des expériences en entreprise. \n"
-        "À long terme, je me vois évoluer en tant que développeur mobile au sein d’une équipe dynamique, sur des projets innovants.", // objectifs
+        "À long terme, je me vois évoluer en tant que développeur mobile au sein d’une équipe dynamique, sur des projets innovants.",
     "Mes contacts : \n\n"
         "Mail : yannis.philippot@gmail.com\n"
         "Linkedin : www.linkedin.com/in/yannis-philippot\n"
-        "Github : https://github.com/Yannis1112\n", // Mes contacts
+        "Github : https://github.com/Yannis1112\n",
   ];
 
   final List<int> stopPoints = [0, 3, 8, 14, 20];
