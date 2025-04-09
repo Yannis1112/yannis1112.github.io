@@ -74564,7 +74564,7 @@ return A.y2(n,A.h1(A.hx(B.bn,A.b([s,A.kh(r,new A.afL(q),B.GN)],o),B.N,B.bm),B.v,
 Yo(){var s,r=A.am(153,B.l.B()>>>16&255,B.l.B()>>>8&255,B.l.B()&255),q=this.r.j(0,this.f)
 q.toString
 s=A.Y(q).h("ae<1,mz>")
-return new A.Es(r,B.i6,new A.co(B.i6,new A.K6(B.y6,20,20,A.a3(new A.ae(q,new A.afI(this),s),!0,s.h("aB.E")),null),null),null)}}
+return new A.Es(r,B.i6,new A.co(B.i6,new A.K6(B.y6,40,20,A.a3(new A.ae(q,new A.afI(this),s),!0,s.h("aB.E")),null),null),null)}}
 A.afK.prototype={
 $1(a){var s=this.a
 s.az(new A.afJ(s,a))},
@@ -74586,7 +74586,7 @@ o=A.X(o).ax
 s=o.Q
 o=s==null?o.y:s
 s=t.E
-return A.ku(A.b([A.hu(A.hx(B.bn,A.b([new A.uB(8,p,B.bt,q,new A.u0(o,t.ZU),q,q,q),A.dd(A.fK(""+J.alK(J.alC(a.j(0,r),100))+"%",q,B.xT,q),q,q)],s),B.N,B.Oh),100,100),B.O4,A.fK(a.j(0,"name"),q,B.xT,q)],s),B.as,B.ay,B.aJ)},
+return A.ku(A.b([A.hu(A.hx(B.bn,A.b([new A.uB(16,p,B.bt,q,new A.u0(o,t.ZU),q,q,q),A.dd(A.fK(""+J.alK(J.alC(a.j(0,r),100))+"%",q,B.xT,q),q,q)],s),B.N,B.Oh),150,150),B.O4,A.fK(a.j(0,"name"),q,B.xT,q)],s),B.as,B.ay,B.aJ)},
 $S:466}
 A.Db.prototype={
 l(){var s=this,r=s.aP$
