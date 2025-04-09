@@ -166,21 +166,21 @@ class _SkillsPageState extends State<SkillsPage>
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Wrap(
-          spacing: 20,
+          spacing: 40,
           runSpacing: 20,
           alignment: WrapAlignment.center,
           children: _skillsData[_selectedCategory]!.map((skill) {
             return Column(
               children: [
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 150,
+                  height: 150,
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
                       CircularProgressIndicator(
                         value: skill['progress'],
-                        strokeWidth: 8,
+                        strokeWidth: 16,
                         backgroundColor: Colors.grey[800],
                         valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondaryContainer),
                       ),
