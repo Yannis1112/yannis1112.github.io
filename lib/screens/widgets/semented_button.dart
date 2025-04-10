@@ -11,21 +11,31 @@ class SegmentedButtonWidget extends StatefulWidget {
 
 class SegmentedButtonWidgetState extends State<SegmentedButtonWidget> {
   int _selectedIndex = 0;
-  final List<String> _options = ['Langages', 'Frameworks', 'Interfaces', 'Bases de données', 'Outils'];
+  final List<String> _options = [
+    'Langages',
+    'Frameworks',
+    'Interfaces',
+    'Bases de données',
+    'Outils',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0), // Réduction de l'espace
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      // Réduction de l'espace
       child: SizedBox(
         width: double.infinity, // Permet de prendre toute la largeur disponible
         child: SegmentedButton<int>(
+          selectedIcon: Image.asset(
+            "assets/icons/drapeau.png",
+            width: 24,
+            height: 24,
+          ),
           segments: List.generate(
             _options.length,
-                (index) => ButtonSegment(
-              value: index,
-              label: Text(_options[index]),
-            ),
+            (index) =>
+                ButtonSegment(value: index, label: Text(_options[index])),
           ),
           selected: {_selectedIndex},
           onSelectionChanged: (newSelection) {
@@ -52,5 +62,4 @@ class SegmentedButtonWidgetState extends State<SegmentedButtonWidget> {
       ),
     );
   }
-
 }
