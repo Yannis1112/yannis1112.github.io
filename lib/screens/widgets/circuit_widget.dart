@@ -55,9 +55,9 @@ class _CircuitWidgetState extends State<CircuitWidget> {
         "🍔 Je m’intéresse également à la cuisine, plus particulièrement à la Street Food.\n"
         "🏎 Passionné par le sport automobile, je suis de près les compétitions et les innovations dans ce domaine. \n"
     "🎮 Enfin, je suis amateur de jeux vidéo, c’est un bon moyen pour moi de me divertir tout en stimulant ma réflexion.\n",
-    "Je souhaite m’orienter vers le domaine du développement mobile. Mon objectif est de concevoir des applications intuitives, performantes et utiles, en alliant à la fois design, expérience utilisateur et fonctionnalités techniques solides.\n"
-        "Dans les mois à venir, je veux continuer à progresser sur les technologies mobiles, notamment avec Flutter, tout en découvrant les bonnes pratiques de développement à travers des expériences en entreprise. \n"
-        "À long terme, je me vois évoluer en tant que développeur mobile au sein d’une équipe dynamique, sur des projets innovants.",
+    "Je souhaite m’orienter vers le domaine du développement d'applications. Mon objectif est de concevoir des applications intuitives, performantes et utiles, en alliant à la fois design, expérience utilisateur et fonctionnalités techniques solides.\n"
+        "Dans les mois à venir, je veux continuer à progresser sur les technologies que je connais et en apprendre de nouvelles, tout en découvrant les bonnes pratiques de développement à travers des expériences en entreprise. \n"
+        "À long terme, je me vois évoluer en tant que développeur d'applications au sein d’une équipe dynamique, sur des projets innovants.",
     "Mes contacts : \n\n"
         "Mail : yannis.philippot@gmail.com\n"
         "Linkedin : www.linkedin.com/in/yannis-philippot\n"
